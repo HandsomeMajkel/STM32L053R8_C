@@ -1,0 +1,328 @@
+
+Discarded input sections
+
+ .data          0x0000000000000000        0x0 out/startup.o
+ .bss           0x0000000000000000        0x0 out/startup.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .group         0x0000000000000000        0x8 out/main.o
+ .text          0x0000000000000000        0x0 out/main.o
+ .data          0x0000000000000000        0x0 out/main.o
+ .bss           0x0000000000000000        0x0 out/main.o
+ .text.flash_access_time
+                0x0000000000000000       0x10 out/main.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+rom              0x0000000008000000 0x0000000000010000 xr
+ram              0x0000000020000000 0x0000000000002000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD out/startup.o
+LOAD out/main.o
+LOAD c:/stm32/arm-none-eabi-gcc-6.3.0-170107/bin/../lib/gcc/arm-none-eabi/6.3.0/../../../../arm-none-eabi/lib/armv6-m\libstdc++.a
+LOAD c:/stm32/arm-none-eabi-gcc-6.3.0-170107/bin/../lib/gcc/arm-none-eabi/6.3.0/../../../../arm-none-eabi/lib/armv6-m\libm.a
+START GROUP
+LOAD c:/stm32/arm-none-eabi-gcc-6.3.0-170107/bin/../lib/gcc/arm-none-eabi/6.3.0/armv6-m\libgcc.a
+LOAD c:/stm32/arm-none-eabi-gcc-6.3.0-170107/bin/../lib/gcc/arm-none-eabi/6.3.0/../../../../arm-none-eabi/lib/armv6-m\libg.a
+LOAD c:/stm32/arm-none-eabi-gcc-6.3.0-170107/bin/../lib/gcc/arm-none-eabi/6.3.0/../../../../arm-none-eabi/lib/armv6-m\libc.a
+END GROUP
+                0x0000000000000400                __main_stack_size = 0x400
+                0x0000000000000400                __process_stack_size = 0x400
+                [!provide]                        PROVIDE (__main_stack_size, __main_stack_size)
+                [!provide]                        PROVIDE (__process_stack_size, __process_stack_size)
+                0x0000000008000000                __rom_start = ORIGIN (rom)
+                0x0000000000010000                __rom_size = LENGTH (rom)
+                0x0000000008010000                __rom_end = (__rom_start + __rom_size)
+                0x0000000020000000                __ram_start = ORIGIN (ram)
+                0x0000000000002000                __ram_size = LENGTH (ram)
+                0x0000000020002000                __ram_end = (__ram_start + __ram_size)
+                [!provide]                        PROVIDE (__rom_start, __rom_start)
+                [!provide]                        PROVIDE (__rom_size, __rom_size)
+                [!provide]                        PROVIDE (__rom_end, __rom_end)
+                [!provide]                        PROVIDE (__ram_start, __ram_start)
+                [!provide]                        PROVIDE (__ram_size, __ram_size)
+                [!provide]                        PROVIDE (__ram_end, __ram_end)
+
+.text           0x0000000008000000      0x110
+                0x0000000008000000                . = ALIGN (0x4)
+                0x0000000008000000                __text_start = .
+                [!provide]                        PROVIDE (__text_start, __text_start)
+                0x0000000008000000                . = ALIGN (0x4)
+ *(.vectors)
+                0x0000000008000000                . = ALIGN (0x4)
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x0000000008000000       0x64 out/startup.o
+                0x0000000008000000                Reset_Handler
+                0x000000000800003c                low_level_init_1
+                0x000000000800003c                low_level_init_0
+                0x000000000800003c                __default_low_level_init
+ .text.main     0x0000000008000064       0x7c out/main.o
+                0x0000000008000064                main
+ .text.pll_start
+                0x00000000080000e0       0x14 out/main.o
+ .text.system_init
+                0x00000000080000f4       0x1c out/main.o
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.glue_7t .glue_7)
+ .glue_7        0x0000000008000110        0x0 linker stubs
+ .glue_7t       0x0000000008000110        0x0 linker stubs
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.gcc_except_table)
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.eh_frame_hdr)
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.eh_frame)
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.init)
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __preinit_array_start = .
+ *(.preinit_array)
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __preinit_array_end = .
+                0x0000000008000110                __init_array_start = .
+ *(SORT(.init_array.*))
+                0x0000000008000110                . = ALIGN (0x4)
+ *(.init_array)
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __init_array_end = .
+ *(.fini)
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __fini_array_start = .
+ *(.fini_array)
+                0x0000000008000110                . = ALIGN (0x4)
+ *(SORT(.fini_array.*))
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __fini_array_end = .
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __text_end = .
+                [!provide]                        PROVIDE (__text_end, __text_end)
+
+.vfp11_veneer   0x0000000008000110        0x0
+ .vfp11_veneer  0x0000000008000110        0x0 linker stubs
+
+.v4_bx          0x0000000008000110        0x0
+ .v4_bx         0x0000000008000110        0x0 linker stubs
+
+.iplt           0x0000000008000110        0x0
+ .iplt          0x0000000008000110        0x0 out/startup.o
+
+.rel.dyn        0x0000000008000110        0x0
+ .rel.iplt      0x0000000008000110        0x0 out/startup.o
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __exidx_start = .
+                [!provide]                        PROVIDE (__exidx_start, __exidx_start)
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x0000000008000110                . = ALIGN (0x4)
+                0x0000000008000110                __exidx_end = .
+                [!provide]                        PROVIDE (__exidx_end, __exidx_end)
+
+.data           0x0000000020000000        0x0 load address 0x0000000008000110
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000008000110                __data_init_start = LOADADDR (.data)
+                [!provide]                        PROVIDE (__data_init_start, __data_init_start)
+                0x0000000020000000                __data_start = .
+                [!provide]                        PROVIDE (__data_start, __data_start)
+                0x0000000020000000                . = ALIGN (0x4)
+ *(.data .data.* .gnu.linkonce.d.*)
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                __data_end = .
+                [!provide]                        PROVIDE (__data_end, __data_end)
+
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000110
+ .igot.plt      0x0000000020000000        0x0 out/startup.o
+
+.bss            0x0000000020000000        0x0
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                __bss_start = .
+                [!provide]                        PROVIDE (__bss_start, __bss_start)
+                0x0000000020000000                . = ALIGN (0x4)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+                0x0000000020000000                . = ALIGN (0x4)
+ *(COMMON)
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                __bss_end = .
+                [!provide]                        PROVIDE (__bss_end, __bss_end)
+
+.stack          0x0000000020000000      0x800
+                0x0000000020000000                . = ALIGN (0x8)
+                0x0000000020000000                __stack_start = .
+                [!provide]                        PROVIDE (__stack_start, __stack_start)
+                0x0000000020000000                . = ALIGN (0x8)
+                0x0000000020000000                __main_stack_start = .
+                [!provide]                        PROVIDE (__main_stack_start, __main_stack_start)
+                0x0000000020000400                . = (. + __main_stack_size)
+ *fill*         0x0000000020000000      0x400 
+                0x0000000020000400                . = ALIGN (0x8)
+                0x0000000020000400                __main_stack_end = .
+                [!provide]                        PROVIDE (__main_stack_end, __main_stack_end)
+                0x0000000020000400                . = ALIGN (0x8)
+                0x0000000020000400                __process_stack_start = .
+                [!provide]                        PROVIDE (__process_stack_start, __process_stack_start)
+                0x0000000020000800                . = (. + __process_stack_size)
+ *fill*         0x0000000020000400      0x400 
+                0x0000000020000800                . = ALIGN (0x8)
+                0x0000000020000800                __process_stack_end = .
+                [!provide]                        PROVIDE (__process_stack_end, __process_stack_end)
+                0x0000000020000800                . = ALIGN (0x8)
+                0x0000000020000800                __stack_end = .
+                [!provide]                        PROVIDE (__stack_end, __stack_end)
+                0x0000000020000800                . = ALIGN (0x4)
+                0x0000000020000800                __heap_start = .
+                [!provide]                        PROVIDE (__heap_start, __heap_start)
+                0x0000000020000800                . = ALIGN (0x4)
+                0x0000000020002000                __heap_end = __ram_end
+                [!provide]                        PROVIDE (__heap_end, __heap_end)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000       0x58
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000       0x20 out/startup.o
+ .debug_aranges
+                0x0000000000000020       0x38 out/main.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000      0x35b
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x0000000000000000       0x4e out/startup.o
+ .debug_info    0x000000000000004e      0x30d out/main.o
+
+.debug_abbrev   0x0000000000000000      0x130
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000       0x14 out/startup.o
+ .debug_abbrev  0x0000000000000014      0x11c out/main.o
+
+.debug_line     0x0000000000000000      0x31c
+ *(.debug_line)
+ .debug_line    0x0000000000000000       0x70 out/startup.o
+ .debug_line    0x0000000000000070      0x2ac out/main.o
+
+.debug_frame    0x0000000000000000       0x8c
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000       0x8c out/main.o
+
+.debug_str      0x0000000000000000    0x2547c
+ *(.debug_str)
+ .debug_str     0x0000000000000000    0x2547c out/main.o
+                                      0x2566e (size before relaxing)
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+
+.ARM.attributes
+                0x0000000000000000       0x2e
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x0000000000000000       0x22 out/startup.o
+ .ARM.attributes
+                0x0000000000000022       0x32 out/main.o
+
+/DISCARD/
+ *(.note.GNU-stack)
+                [!provide]                        PROVIDE (__text_size, (__text_end - __text_start))
+                [!provide]                        PROVIDE (__exidx_size, (__exidx_end - __exidx_start))
+                [!provide]                        PROVIDE (__data_size, (__data_end - __data_start))
+                [!provide]                        PROVIDE (__bss_size, (__bss_end - __bss_start))
+                [!provide]                        PROVIDE (__stack_size, (__stack_end - __stack_start))
+                [!provide]                        PROVIDE (__heap_size, (__heap_end - __heap_start))
+OUTPUT(out/STM32L053R8_C.elf elf32-littlearm)
+
+.debug_ranges   0x0000000000000000       0x28
+ .debug_ranges  0x0000000000000000       0x28 out/main.o
+
+.debug_macro    0x0000000000000000     0x6c8c
+ .debug_macro   0x0000000000000000       0xc0 out/main.o
+ .debug_macro   0x00000000000000c0      0x88c out/main.o
+ .debug_macro   0x000000000000094c       0x22 out/main.o
+ .debug_macro   0x000000000000096e       0x87 out/main.o
+ .debug_macro   0x00000000000009f5       0x51 out/main.o
+ .debug_macro   0x0000000000000a46       0xef out/main.o
+ .debug_macro   0x0000000000000b35       0x6a out/main.o
+ .debug_macro   0x0000000000000b9f      0x1df out/main.o
+ .debug_macro   0x0000000000000d7e       0x28 out/main.o
+ .debug_macro   0x0000000000000da6       0x3a out/main.o
+ .debug_macro   0x0000000000000de0       0x1f out/main.o
+ .debug_macro   0x0000000000000dff      0x376 out/main.o
+ .debug_macro   0x0000000000001175     0x4524 out/main.o
+ .debug_macro   0x0000000000005699       0x16 out/main.o
+ .debug_macro   0x00000000000056af       0x1c out/main.o
+ .debug_macro   0x00000000000056cb     0x15c1 out/main.o
+
+.comment        0x0000000000000000       0x25
+ .comment       0x0000000000000000       0x25 out/main.o
+                                         0x26 (size before relaxing)
+
+Cross Reference Table
+
+Symbol                                            File
+Reset_Handler                                     out/startup.o
+__bss_end                                         out/startup.o
+__bss_start                                       out/startup.o
+__data_end                                        out/startup.o
+__data_init_start                                 out/startup.o
+__data_start                                      out/startup.o
+__default_low_level_init                          out/startup.o
+__process_stack_end                               out/startup.o
+low_level_init_0                                  out/startup.o
+low_level_init_1                                  out/startup.o
+main                                              out/main.o
+                                                  out/startup.o
