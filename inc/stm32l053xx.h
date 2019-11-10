@@ -1737,6 +1737,25 @@ typedef struct
 #define GPIO_BRR_BR_14             ((uint32_t)0x00004000)
 #define GPIO_BRR_BR_15             ((uint32_t)0x00008000)
 
+/****************** Bit definition for GPIO_AFRL register  ********************/
+#define GPIO_AFRL_AFRL0            ((uint32_t)0x0000000F)
+#define GPIO_AFRL_AFRL1            ((uint32_t)0x000000F0)
+#define GPIO_AFRL_AFRL2            ((uint32_t)0x00000F00)
+#define GPIO_AFRL_AFRL3            ((uint32_t)0x0000F000)
+#define GPIO_AFRL_AFRL4            ((uint32_t)0x000F0000)
+#define GPIO_AFRL_AFRL5            ((uint32_t)0x00F00000)
+#define GPIO_AFRL_AFRL6            ((uint32_t)0x0F000000)
+#define GPIO_AFRL_AFRL7            ((uint32_t)0xF0000000)
+
+/****************** Bit definition for GPIO_AFRH register  ********************/
+#define GPIO_AFRH_AFRH0            ((uint32_t)0x0000000F)
+#define GPIO_AFRH_AFRH1            ((uint32_t)0x000000F0)
+#define GPIO_AFRH_AFRH2            ((uint32_t)0x00000F00)
+#define GPIO_AFRH_AFRH3            ((uint32_t)0x0000F000)
+#define GPIO_AFRH_AFRH4            ((uint32_t)0x000F0000)
+#define GPIO_AFRH_AFRH5            ((uint32_t)0x00F00000)
+#define GPIO_AFRH_AFRH6            ((uint32_t)0x0F000000)
+#define GPIO_AFRH_AFRH7            ((uint32_t)0xF0000000)
 /******************************************************************************/
 /*                                                                            */
 /*                   Inter-integrated Circuit Interface (I2C)                 */
